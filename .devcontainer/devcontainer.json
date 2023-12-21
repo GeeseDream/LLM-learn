@@ -1,0 +1,25 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+    "name": "torch-cuda",
+    "image": "geesedream/torch-cuda:2.1.1-cu11.8-cp311",
+    "runArgs": [
+        "--gpus=all"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "donjayamanne.python-extension-pack"
+            ]
+        }
+    },
+    "postCreateCommand": "pip config set global.index-url https://mirror.baidu.com/pypi/simple",
+    "mounts": [
+        {
+            "source": "D:/llm-models/",
+            "target": "/models/",
+            "type": "bind"
+        }
+    ]
+}
